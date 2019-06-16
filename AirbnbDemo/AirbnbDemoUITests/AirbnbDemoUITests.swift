@@ -25,7 +25,6 @@ class AirbnbDemoUITests: XCTestCase {
     }
 
     func testLogin() {
-        
         LoginScreens.logIn(with: TestData.email)
     }
 

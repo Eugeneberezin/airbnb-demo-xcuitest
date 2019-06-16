@@ -44,12 +44,24 @@ class LoginScreens {
 
     
     static func logIn(with email: String){
+        guard buttons.login.waitForExistence(timeout: 30) else {
+            XCTFail("Log in button is not visible")
+            return
+        }
         
+        XCTAssert(buttons.login.exists, "Login button is not visible")
         buttons.login.tap()
+        XCTAssert(textFields.email.exists, "Email text field is not visible")
         textFields.email.tap()
         type(text: email)
         textFields.password.tap()
         typePassword(letters: "", numbers: "") //for this application .typeText() method would not work. The easiest solution for this demo is to provide separate strings of numeric/special characters and letters.
+        guard buttons.submitlogin.waitForExistence(timeout: 30) else {
+            XCTFail("No log in button")
+            return
+        }
+        
+        XCTAssert(buttons.submitlogin.exists, "Log in button is not visible after user entered credentials")
         buttons.submitlogin.tap()
         
         
