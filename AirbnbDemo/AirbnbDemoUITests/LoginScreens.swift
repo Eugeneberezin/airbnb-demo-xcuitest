@@ -24,7 +24,7 @@ class LoginScreens {
     }
     
     static let buttons = Buttons(login: airbnbApp.buttons["Log in"],
-                                 submitlogin: airbnbApp/*@START_MENU_TOKEN@*/.buttons["SubmitLoginButton"]/*[[".buttons[\"Log in\"]",".buttons[\"SubmitLoginButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/)
+                                 submitlogin: airbnbApp.buttons["SubmitLoginButton"])
     
     static let errorMessage = airbnbApp.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .textView).element
     
