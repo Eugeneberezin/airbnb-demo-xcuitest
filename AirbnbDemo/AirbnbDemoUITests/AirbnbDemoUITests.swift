@@ -27,10 +27,16 @@ class AirbnbDemoUITests: XCTestCase {
     func testLogin() {
         
         LoginScreens.logIn(email: TestData.email, password: TestData.password)
+        
+        guard LoginScreens.errorMessage.waitForExistence(timeout: 30) else {
+            XCTFail("Error message does not exist")
+            return
+           
+        }
+        
+        XCTAssert(LoginScreens.errorMessage.exists, "Error message is not visible")
+        
     }
     
 
 }
-
-
-

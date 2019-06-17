@@ -12,6 +12,7 @@ import XCTest
 class LoginScreens {
     
     static let airbnbApp = XCUIApplication(bundleIdentifier: "com.airbnb.app")
+    
     struct TextFields {
         let email: XCUIElement
         let password: XCUIElement
@@ -24,6 +25,8 @@ class LoginScreens {
     
     static let buttons = Buttons(login: airbnbApp.buttons["Log in"],
                                  submitlogin: airbnbApp/*@START_MENU_TOKEN@*/.buttons["SubmitLoginButton"]/*[[".buttons[\"Log in\"]",".buttons[\"SubmitLoginButton\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/)
+    
+    static let errorMessage = airbnbApp.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .textView).element
     
     static let textFields = TextFields(email: airbnbApp.scrollViews.children(matching: .other).element.children(matching: .other).element(boundBy: 1).children(matching: .other).element.children(matching: .other).element(boundBy: 0).children(matching: .textField).element,
                                        password: airbnbApp.scrollViews.children(matching: .other).element.children(matching: .other).element(boundBy: 2).children(matching: .other).element.children(matching: .other).element(boundBy: 0).children(matching: .secureTextField).element)
@@ -43,7 +46,7 @@ class LoginScreens {
         textFields.email.typeText(email)
         textFields.password.tap()
         textFields.password.typeText(password)
-        textFields.password.tap()
+       
        
         guard buttons.submitlogin.waitForExistence(timeout: 30) else {
             XCTFail("No log in button")
